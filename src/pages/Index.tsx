@@ -1,4 +1,4 @@
-import { ArrowRight, Check, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -10,27 +10,26 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Main content with top padding for navigation */}
       <main className="pt-16">
         {/* Hero Section */}
         <section className="relative overflow-hidden px-6 lg:px-8 py-24 sm:py-32">
           <div className="mx-auto max-w-7xl text-center">
             <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-primary mb-6">
-              Change the bank account
+              Build Amazing Games
               <br />
               <span className="bg-gradient-to-r from-[#9EE755] to-[#CFDD3C] bg-clip-text text-transparent">
-                you use
+                With GameForge
               </span>
             </h1>
             <p className="mx-auto max-w-2xl text-lg text-secondary mb-8">
-              Experience banking reimagined. Simple, secure, and designed for the modern world.
+              A powerful framework for game developers. Build, test, and deploy games faster than ever before.
             </p>
             <div className="flex justify-center gap-4">
               <button className="px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors">
                 Get Started
               </button>
               <button className="px-6 py-3 glass rounded-full hover:bg-white/20 transition-colors flex items-center gap-2">
-                Learn More <ArrowRight className="w-4 h-4" />
+                View Docs <ArrowRight className="w-4 h-4" />
               </button>
             </div>
           </div>
@@ -40,7 +39,7 @@ const Index = () => {
             <div className="flex justify-center">
               <img
                 src="https://antimetal.com/images/hero/preview.png"
-                alt="Hero"
+                alt="Game Development Framework Interface"
                 className="rounded-3xl shadow-2xl max-w-[90%] w-auto h-auto"
               />
             </div>
@@ -49,23 +48,23 @@ const Index = () => {
 
         <section className="py-24 bg-surface px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
-            <h2 className="text-3xl font-bold text-center mb-16">Features designed for you</h2>
+            <h2 className="text-3xl font-bold text-center mb-16">Why Choose GameForge</h2>
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 {
-                  title: "Secure Transactions",
-                  description: "Bank-grade encryption for all your transactions",
-                  icon: "🔒",
-                },
-                {
-                  title: "Real-time Updates",
-                  description: "Get instant notifications for all account activities",
+                  title: "High Performance",
+                  description: "Built for optimal game performance and smooth gameplay",
                   icon: "⚡",
                 },
                 {
-                  title: "Smart Savings",
-                  description: "AI-powered insights to help you save more",
-                  icon: "💡",
+                  title: "Cross-Platform",
+                  description: "Deploy your games across multiple platforms seamlessly",
+                  icon: "🎮",
+                },
+                {
+                  title: "Rich Ecosystem",
+                  description: "Access a vast library of tools and assets",
+                  icon: "🛠️",
                 },
               ].map((feature, index) => (
                 <div
@@ -88,16 +87,16 @@ const Index = () => {
             <div className="space-y-4">
               {[
                 {
-                  question: "How secure is my data?",
-                  answer: "We use bank-level encryption to protect all your data and transactions.",
+                  question: "What platforms are supported?",
+                  answer: "GameForge supports all major platforms including Windows, macOS, Linux, iOS, and Android.",
                 },
                 {
-                  question: "What are the fees?",
-                  answer: "We believe in transparent pricing with no hidden fees.",
+                  question: "Do I need prior experience?",
+                  answer: "While experience helps, our framework is designed to be accessible for developers of all skill levels.",
                 },
                 {
-                  question: "How do I get started?",
-                  answer: "Download our app and follow the simple registration process.",
+                  question: "Is it free to use?",
+                  answer: "We offer both free and premium tiers to suit different needs and project scales.",
                 },
               ].map((faq, index) => (
                 <div
@@ -129,12 +128,12 @@ const Index = () => {
         {/* CTA Section */}
         <section className="py-24 bg-primary text-white px-6 lg:px-8">
           <div className="mx-auto max-w-7xl text-center">
-            <h2 className="text-3xl sm:text-5xl font-bold mb-8">Ready to get started?</h2>
+            <h2 className="text-3xl sm:text-5xl font-bold mb-8">Start Building Your Game Today</h2>
             <p className="text-white/80 mb-8 max-w-2xl mx-auto">
-              Join thousands of satisfied customers who have already made the switch.
+              Join thousands of game developers who are already creating amazing games with GameForge.
             </p>
             <button className="px-8 py-4 bg-accent text-primary rounded-full font-semibold hover:bg-accent/90 transition-colors">
-              Create Account
+              Download SDK
             </button>
           </div>
         </section>

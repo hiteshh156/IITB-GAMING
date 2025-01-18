@@ -3,20 +3,20 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   const footerSections = [
     {
-      title: "Product",
-      links: ["Features", "Pricing", "Security", "Updates"],
-    },
-    {
-      title: "Company",
-      links: ["About", "Blog", "Careers", "Press"],
+      title: "Products",
+      links: ["SDK", "Tools", "Assets", "Plugins"],
     },
     {
       title: "Resources",
-      links: ["Documentation", "Help Center", "Contact", "Status"],
+      links: ["Documentation", "Tutorials", "API Reference", "Examples"],
     },
     {
-      title: "Legal",
-      links: ["Privacy", "Terms", "Security", "Cookies"],
+      title: "Community",
+      links: ["Forums", "Discord", "Blog", "Showcase"],
+    },
+    {
+      title: "Company",
+      links: ["About", "Careers", "Contact", "Legal"],
     },
   ];
 
@@ -45,17 +45,17 @@ const Footer = () => {
         
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-white/70 text-sm">
-            © 2024 BankApp. All rights reserved.
+            © 2024 GameForge. All rights reserved.
           </p>
           <div className="flex items-center space-x-6">
             <Link to="#" className="text-white/70 hover:text-white transition-colors">
-              Twitter
-            </Link>
-            <Link to="#" className="text-white/70 hover:text-white transition-colors">
-              LinkedIn
-            </Link>
-            <Link to="#" className="text-white/70 hover:text-white transition-colors">
               GitHub
+            </Link>
+            <Link to="#" className="text-white/70 hover:text-white transition-colors">
+              Discord
+            </Link>
+            <Link to="#" className="text-white/70 hover:text-white transition-colors">
+              Twitter
             </Link>
           </div>
         </div>

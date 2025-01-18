@@ -6,18 +6,18 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link to="/" className="text-xl font-semibold">
-          BankApp
+          GameForge
         </Link>
         
         <div className="hidden md:flex items-center space-x-8">
-          <Link to="/features" className="text-secondary hover:text-primary transition-colors">
-            Features
+          <Link to="/docs" className="text-secondary hover:text-primary transition-colors">
+            Documentation
           </Link>
-          <Link to="/pricing" className="text-secondary hover:text-primary transition-colors">
-            Pricing
+          <Link to="/showcase" className="text-secondary hover:text-primary transition-colors">
+            Showcase
           </Link>
-          <Link to="/about" className="text-secondary hover:text-primary transition-colors">
-            About
+          <Link to="/community" className="text-secondary hover:text-primary transition-colors">
+            Community
           </Link>
         </div>
 
