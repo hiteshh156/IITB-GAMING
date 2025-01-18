@@ -7,24 +7,27 @@ import Index from "./pages/Index";
 import ApiDocs from "./pages/ApiDocs";
 import Showcase from "./pages/Showcase";
 import Community from "./pages/Community";
+import { useState } from "react";
 
-const queryClient = new QueryClient();
+function App() {
+  const [queryClient] = useState(() => new QueryClient());
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/docs" element={<ApiDocs />} />
-          <Route path="/showcase" element={<Showcase />} />
-          <Route path="/community" element={<Community />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/docs" element={<ApiDocs />} />
+            <Route path="/showcase" element={<Showcase />} />
+            <Route path="/community" element={<Community />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+}
 
 export default App;
