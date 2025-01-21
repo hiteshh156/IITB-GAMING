@@ -43,9 +43,6 @@ const Navigation = () => {
           >
             Admin Login
           </Button>
-          <Button className="text-white">
-            Get Started
-          </Button>
         </div>
       </div>
     </nav>
