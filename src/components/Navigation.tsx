@@ -22,11 +22,26 @@ const Navigation = () => {
         </div>
 
         <div className="flex items-center space-x-4">
-          <Button variant="ghost" className="hidden md:inline-flex">
+          <Button 
+            variant="ghost" 
+            className="hidden md:inline-flex"
+            onClick={() => window.open('https://playwatch-analytics.lovable.app/', '_blank')}
+          >
             Developer Login
           </Button>
-          <Button variant="ghost" className="hidden md:inline-flex">
+          <Button 
+            variant="ghost" 
+            className="hidden md:inline-flex"
+            onClick={() => window.open('https://gameguard-dashboard.lovable.app/', '_blank')}
+          >
             Regulator Login
+          </Button>
+          <Button 
+            variant="ghost" 
+            className="hidden md:inline-flex"
+            onClick={() => window.open('https://gameguard-dashboard.lovable.app/', '_blank')}
+          >
+            Admin Login
           </Button>
           <Button className="text-white">
             Get Started
