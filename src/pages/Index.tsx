@@ -2,9 +2,11 @@ import { ArrowRight, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
   const [activeAccordion, setActiveAccordion] = useState<number | null>(null);
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-background">
@@ -18,7 +20,7 @@ const Index = () => {
               Build Amazing Games
               <br />
               <span className="bg-gradient-to-r from-[#9EE755] to-[#CFDD3C] bg-clip-text text-transparent">
-                With GameForge
+                With IITB GAMING
               </span>
             </h1>
             <p className="mx-auto max-w-2xl text-lg text-secondary mb-8">
@@ -28,7 +30,10 @@ const Index = () => {
               <button className="px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors">
                 Get Started
               </button>
-              <button className="px-6 py-3 glass rounded-full hover:bg-white/20 transition-colors flex items-center gap-2">
+              <button 
+                onClick={() => navigate('/docs')}
+                className="px-6 py-3 glass rounded-full hover:bg-white/20 transition-colors flex items-center gap-2"
+              >
                 View Docs <ArrowRight className="w-4 h-4" />
               </button>
             </div>
@@ -125,7 +130,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
         <section className="py-24 bg-primary text-white px-6 lg:px-8">
           <div className="mx-auto max-w-7xl text-center">
             <h2 className="text-3xl sm:text-5xl font-bold mb-8">Start Building Your Game Today</h2>
