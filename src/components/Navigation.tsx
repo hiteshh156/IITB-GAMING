@@ -25,7 +25,7 @@ const Navigation = () => {
           <Button 
             variant="ghost" 
             className="hidden md:inline-flex"
-            onClick={() => window.open('https://playwatch-analytics.lovable.app/', '_blank')}
+            onClick={() => window.open('https://lovable.dev/projects/32f69e91-ae87-4e96-914e-4b8b2e90e112', '_blank')}
           >
             Developer Login
           </Button>
