@@ -29,7 +29,7 @@ const Index = () => {
             <div className="flex justify-center gap-4">
               <button 
                 className="px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors"
-                onClick={() => window.open('https://lovable.dev/projects/32f69e91-ae87-4e96-914e-4b8b2e90e112', '_blank')}
+                onClick={() => window.open('https://gamehub-dashboard.lovable.app/', '_blank')}
               >
                 Get Started
               </button>
