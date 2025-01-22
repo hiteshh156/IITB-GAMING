@@ -4,19 +4,39 @@ const Footer = () => {
   const footerSections = [
     {
       title: "Products",
-      links: ["SDK", "Tools", "Assets", "Plugins"],
+      links: [
+        { name: "SDK", path: "/sdk" },
+        { name: "Tools", path: "/tools" },
+        { name: "Assets", path: "/assets" },
+        { name: "Plugins", path: "/plugins" }
+      ],
     },
     {
       title: "Resources",
-      links: ["Documentation", "Tutorials", "API Reference", "Examples"],
+      links: [
+        { name: "Documentation", path: "/docs" },
+        { name: "Tutorials", path: "/tutorials" },
+        { name: "API Reference", path: "/api-reference" },
+        { name: "Examples", path: "/examples" }
+      ],
     },
     {
       title: "Community",
-      links: ["Forums", "Discord", "Blog", "Showcase"],
+      links: [
+        { name: "Forums", path: "/forums" },
+        { name: "Discord", path: "/discord" },
+        { name: "Blog", path: "/blog" },
+        { name: "Showcase", path: "/showcase" }
+      ],
     },
     {
       title: "Company",
-      links: ["About", "Careers", "Contact", "Legal"],
+      links: [
+        { name: "About", path: "/about" },
+        { name: "Careers", path: "/careers" },
+        { name: "Contact", path: "/contact" },
+        { name: "Legal", path: "/legal" }
+      ],
     },
   ];
 
@@ -29,12 +49,12 @@ const Footer = () => {
               <h3 className="font-semibold mb-4">{section.title}</h3>
               <ul className="space-y-2">
                 {section.links.map((link) => (
-                  <li key={link}>
+                  <li key={link.name}>
                     <Link
-                      to={`/${link.toLowerCase()}`}
+                      to={link.path}
                       className="text-white/70 hover:text-white transition-colors"
                     >
-                      {link}
+                      {link.name}
                     </Link>
                   </li>
                 ))}
