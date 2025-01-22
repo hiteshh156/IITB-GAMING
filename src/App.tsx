@@ -10,6 +10,15 @@ import Index from "./pages/Index";
 import ApiDocs from "./pages/ApiDocs";
 import Showcase from "./pages/Showcase";
 import Community from "./pages/Community";
+import Tutorials from "./pages/Tutorials";
+import ApiReference from "./pages/ApiReference";
+import Examples from "./pages/Examples";
+import Forums from "./pages/Forums";
+import Blog from "./pages/Blog";
+import About from "./pages/About";
+import Careers from "./pages/Careers";
+import Contact from "./pages/Contact";
+import Legal from "./pages/Legal";
 
 // Product Pages
 import SDK from "./pages/products/SDK";
@@ -31,6 +40,15 @@ function App() {
             <Route path="/docs" element={<ApiDocs />} />
             <Route path="/showcase" element={<Showcase />} />
             <Route path="/community" element={<Community />} />
+            <Route path="/tutorials" element={<Tutorials />} />
+            <Route path="/api-reference" element={<ApiReference />} />
+            <Route path="/examples" element={<Examples />} />
+            <Route path="/forums" element={<Forums />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/legal" element={<Legal />} />
             
             {/* Product Routes */}
             <Route path="/sdk" element={<SDK />} />
