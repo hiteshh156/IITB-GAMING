@@ -5,9 +5,14 @@ import { Separator } from "@/components/ui/separator";
 import { useToast } from "@/components/ui/use-toast";
 import { MessageCircle, Users, Send, AtSign, MessageSquare, Bookmark, ThumbsUp, Share2 } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { database } from "@/lib/firebase";
+import { ref, onValue, push, serverTimestamp } from "firebase/database";
+import { useEffect, useState } from "react";
 
 const Community = () => {
   const { toast } = useToast();
+  const [newMessage, setNewMessage] = useState("");
+  const [messages, setMessages] = useState<any[]>([]);
   
   const channels = [
     { id: 1, name: "general", description: "General discussion", unread: 3, icon: MessageCircle },
@@ -23,42 +28,54 @@ const Community = () => {
     { id: 4, name: "Diana Designer", status: "offline", lastSeen: "1h ago", avatar: "/avatars/diana.png" },
   ];
 
-  const messages = [
-    { 
-      id: 1, 
-      user: "Alice Dev", 
-      content: "Hey everyone! Working on a new platformer game!", 
-      time: "10:30 AM",
-      avatar: "/avatars/alice.png",
-      reactions: { likes: 3, bookmarks: 1 }
-    },
-    { 
-      id: 2, 
-      user: "Bob Builder", 
-      content: "That's awesome! Using the physics engine?", 
-      time: "10:32 AM",
-      avatar: "/avatars/bob.png",
-      reactions: { likes: 2, bookmarks: 0 }
-    },
-    { 
-      id: 3, 
-      user: "Charlie Coder", 
-      content: "The physics engine is really powerful for platformers!", 
-      time: "10:35 AM",
-      avatar: "/avatars/charlie.png",
-      reactions: { likes: 4, bookmarks: 2 }
-    },
-  ];
-
-  const handleSendMessage = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Message sent",
-      description: "Your message has been sent to the channel.",
+  useEffect(() => {
+    const messagesRef = ref(database, 'messages');
+    const unsubscribe = onValue(messagesRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        const messageList = Object.entries(data).map(([key, value]: [string, any]) => ({
+          id: key,
+          ...value,
+        }));
+        setMessages(messageList.sort((a, b) => a.timestamp - b.timestamp));
+      }
     });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  const handleSendMessage = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newMessage.trim()) return;
+
+    const messagesRef = ref(database, 'messages');
+    try {
+      await push(messagesRef, {
+        content: newMessage,
+        user: "Anonymous User", // Replace with actual user name when auth is implemented
+        timestamp: serverTimestamp(),
+        avatar: "/avatars/default.png",
+        reactions: { likes: 0, bookmarks: 0 }
+      });
+
+      setNewMessage("");
+      toast({
+        title: "Message sent",
+        description: "Your message has been sent to the channel.",
+      });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
-  const handleReaction = (messageId: number, type: 'like' | 'bookmark') => {
+  const handleReaction = (messageId: string, type: 'like' | 'bookmark') => {
+    // Implementation for reactions can be added here
     toast({
       title: "Reaction added",
       description: `You ${type}d the message`,
@@ -125,7 +142,7 @@ const Community = () => {
                           {message.user}
                         </span>
                         <span className="text-xs text-muted-foreground">
-                          {message.time}
+                          {new Date(message.timestamp).toLocaleTimeString()}
                         </span>
                       </div>
                       <p className="text-sm mt-1 leading-relaxed">{message.content}</p>
@@ -155,6 +172,8 @@ const Community = () => {
                   <Input
                     placeholder="Type your message..."
                     className="pr-10"
+                    value={newMessage}
+                    onChange={(e) => setNewMessage(e.target.value)}
                   />
                   <AtSign className="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
                 </div>
