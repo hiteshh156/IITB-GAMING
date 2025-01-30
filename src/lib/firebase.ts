@@ -7,7 +7,7 @@ const firebaseConfig = {
   projectId: "iitb-cad71",
   storageBucket: "iitb-cad71.appspot.com",
   messagingSenderId: "123456789",
-  appId: "1:123456789:web:123456789",
+  appId: "1:917206215926:web:665ea89353cd14d12490d7",
   databaseURL: "https://iitb-cad71-default-rtdb.firebaseio.com"
 };
 
